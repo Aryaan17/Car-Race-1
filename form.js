@@ -1,6 +1,8 @@
 class Form{
     constructor(){
-
+        this.inputBox = createInput("Name: ");
+        this.button = createButton("Next");
+        this.greeting = createElement('h4');
     }
 
     display(){
@@ -8,24 +10,26 @@ class Form{
         title.html("Multiplayer Car Racing Game");
         title.position(130, 0);
 
-        var inputBox = createInput("Name: ")
-        inputBox.position(130, 160);
+        this.inputBox.position(130, 160);
 
-        var button = createButton("Next");
-        button.position(250, 200);
+        this.button.position(250, 200);
 
-        var greeting = createElement('h4');
-
-
-        button.mousePressed(function(){
-            inputBox.hide();
-            button.hide();
-            var plName = inputBox.value();
+        this.button.mousePressed(()=>{
+            this.inputBox.hide();
+            this.button.hide();
+            player.name = this.inputBox.value();
             playerCount += 1;
-            player.updateName(plName);
+            player.index = playerCount;
+            player.updatePlayerInfo();
             player.updateplayerCount(playerCount);
-            greeting.html("Welcome to the car racing game, "+ plName);
-            greeting.position(130, 160);
+            this.greeting.html("Welcome to the car racing game,  "+ player.name);
+            this.greeting.position(130, 160);
         })
+    }
+
+    hide(){
+        this.inputBox.hide();
+        this.button.hide();
+        this.greeting.hide();
     }
 }
