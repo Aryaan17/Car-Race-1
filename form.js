@@ -4,13 +4,12 @@ class Form{
         this.button = createButton("Next");
         this.greeting = createElement('h4');
         this.label = createElement('h4');
-
+        this.title = createElement('h1');
     }
 
     display(){
-        var title = createElement('h1');
-        title.html("Multiplayer Car Racing Game");
-        title.position(displayWidth/2, displayHeight-800);
+        this.title.html("Multiplayer Car Racing Game");
+        this.title.position(displayWidth/2, displayHeight-800);
 
         this.label.html("Name: ");
         this.label.position(displayWidth-880, displayHeight-620);
@@ -34,6 +33,7 @@ class Form{
     }
 
     hide(){
+        this.title.hide();
         this.inputBox.hide();
         this.button.hide();
         this.greeting.hide();
