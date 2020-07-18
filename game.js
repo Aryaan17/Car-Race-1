@@ -50,7 +50,10 @@ class Game {
                 car[index].y = y;
                 index = index + 1;
                 if(index === player.index){
-                    car[index-1].shapeColor = "red";
+                    stroke("yellow");
+                    rectMode(CENTER);
+                    rect(x, y, 60, 100);
+                    //car[index-1].shapeColor = "red";
                     camera.position.x = displayWidth/2;
                     camera.position.y = car[index-1].y;
                     console.log(car[index-1].y);
