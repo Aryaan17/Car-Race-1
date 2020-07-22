@@ -36,6 +36,7 @@ class Game {
     play(){
         form.hide();
         textSize(25);
+        player.getRank();
         text("THE GAME HAS BEGUN", 130, 100);
         Player.getAllPlayersInfo();
         if(allPlayers!=undefined){
@@ -60,12 +61,15 @@ class Game {
                 }
             }
         }
-        if(keyIsDown(UP_ARROW)&& player.index!=null&& player.distance<3500){
+        if(keyIsDown(UP_ARROW)&& player.index!=null){//&& player.distance<3500){
             player.distance += 50;
             player.updatePlayerInfo();
+            carSound.play();
         }
         if(player.distance===3500){
             gameState= 2;
+            player.rank += 1;
+            player.updateRank(player.rank);
         }
     }
 

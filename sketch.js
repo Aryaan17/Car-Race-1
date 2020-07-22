@@ -5,11 +5,14 @@ var database;
 var car1, car2; //car3, car4;
 var carImg1, carImg2, trackImg;
 var car = [];
+var rank = 0;
+var carSound;
 
 function preload(){
     carImg1 = loadImage("images/car1.png");
     carImg2 = loadImage("images/car2.png");
     trackImg = loadImage("images/track.jpg");
+    carSound = loadSound("sounds/formula+1.mp3");
 }
 
 function setup(){
@@ -32,6 +35,7 @@ function draw(){
     }
     if(gameState === 2){
         game.end();
+        console.log(player.name + " Rank:" + player.rank);
     }
 
 }
